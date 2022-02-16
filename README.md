@@ -1,4 +1,4 @@
-# template-tf-modules
+# Terraform AWS modules
 
 Template repository for PagoPA terraform modules
 
