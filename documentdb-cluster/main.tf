@@ -20,6 +20,7 @@ resource "aws_docdb_cluster" "this" {
   preferred_backup_window = var.preferred_backup_window
   skip_final_snapshot     = var.skip_final_snapshot
 
+  #tfsec:ignore:aws-documentdb-enable-log-export
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 
   tags = var.tags
