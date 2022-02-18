@@ -19,14 +19,21 @@ resource "aws_docdb_cluster" "this" {
   backup_retention_period = var.backup_retention_period
   preferred_backup_window = var.preferred_backup_window
   skip_final_snapshot     = var.skip_final_snapshot
+
+  enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
+
+  tags = var.tags
 }
 
+#tfsec:ignore:aws-documentdb-encryption-customer-key
 resource "aws_docdb_cluster_instance" "instances" {
   count              = var.cluster_instance_count
   identifier         = format("%s-%s", var.name, count.index)
   cluster_identifier = aws_docdb_cluster.this.id
   instance_class     = var.cluster_instance_class
   ca_cert_identifier = var.ca_cert_identifier
+
+  tags = var.tags
 }
 
 resource "aws_docdb_cluster_parameter_group" "this" {
@@ -40,4 +47,6 @@ resource "aws_docdb_cluster_parameter_group" "this" {
       value = parameter.value.value
     }
   }
+
+  tags = var.tags
 }

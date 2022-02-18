@@ -102,3 +102,13 @@ variable "engine_version" {
   description = "The database engine version. Updating this argument results in an outage."
   type        = string
 }
+
+variable "enabled_cloudwatch_logs_exports" {
+  type        = list(string)
+  default     = []
+  description = "List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: audit, profiler."
+}
+
+variable "tags" {
+  type = map(any)
+}
