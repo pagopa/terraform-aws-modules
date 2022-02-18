@@ -61,6 +61,12 @@ variable "storage_encrypted" {
   description = "Specifies whether the DB cluster is encrypted."
 }
 
+variable "kms_key_id" {
+  type        = string
+  description = "The ARN for the KMS encryption key."
+  default     = null
+}
+
 variable "parameters" {
   description = "additional parameters modified in parameter group"
   type        = list(map(any))

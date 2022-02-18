@@ -38,6 +38,7 @@ No modules.
 | <a name="input_engine_version"></a> [engine\_version](#input\_engine\_version) | The database engine version. Updating this argument results in an outage. | `string` | `"3.6.0"` | no |
 | <a name="input_family"></a> [family](#input\_family) | Version of docdb family being created | `string` | `"docdb3.6"` | no |
 | <a name="input_group_subnets"></a> [group\_subnets](#input\_group\_subnets) | List of subnet ids to provide a DocumentDB subnet group resource. | `list(string)` | `[]` | no |
+| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | The ARN for the KMS encryption key. | `string` | `null` | no |
 | <a name="input_parameters"></a> [parameters](#input\_parameters) | additional parameters modified in parameter group | `list(map(any))` | `[]` | no |
 | <a name="input_preferred_backup_window"></a> [preferred\_backup\_window](#input\_preferred\_backup\_window) | The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod paramete. | `string` | `"07:00-09:00"` | no |
 | <a name="input_skip_final_snapshot"></a> [skip\_final\_snapshot](#input\_skip\_final\_snapshot) | Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. | `bool` | `false` | no |
