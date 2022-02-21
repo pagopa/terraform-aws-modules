@@ -97,7 +97,7 @@ variable "availability_zones" {
 variable "at_rest_encryption_enabled" {
   description = "Whether to enable encryption at rest"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "kms_key_id" {
@@ -109,7 +109,7 @@ variable "kms_key_id" {
 variable "transit_encryption_enabled" {
   description = "Whether to enable encryption in transit. Requires 3.2.6 or >=4.0 redis_version"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "auth_token" {
