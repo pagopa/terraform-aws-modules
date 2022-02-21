@@ -9,7 +9,7 @@ resource "aws_elasticache_replication_group" "this" {
 
   replication_group_id       = var.name
   description                = format("ElastiCache replication group for %s", var.name)
-  number_cache_clusters      = var.redis_clusters
+  num_cache_clusters         = var.redis_clusters
   node_type                  = var.redis_node_type
   automatic_failover_enabled = var.redis_failover
   auto_minor_version_upgrade = var.auto_minor_version_upgrade
