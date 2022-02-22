@@ -1,8 +1,3 @@
-variable "aws_region" {
-  type = string
-
-}
-
 variable "name" {
   type        = string
   description = "The name of the security group. If omitted, Terraform will assign a random, unique name"
