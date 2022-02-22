@@ -23,7 +23,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | n/a | `string` | n/a | yes |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | n/a | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | The security group description. | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the security group. If omitted, Terraform will assign a random, unique name | `string` | `null` | no |
