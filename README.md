@@ -1,13 +1,23 @@
-# Terraform AWS modules
+## Requirements
 
-Template repository for PagoPA terraform modules
+No requirements.
 
-## Semantic versioning
+## Providers
 
-This repo use standard semantic versioning according to https://www.conventionalcommits.org.
+No providers.
 
-We use keywords in PR title to determinate next release version.
+## Modules
 
-If first commit it's different from PR title you must add at least a second commit.
+No modules.
 
-Due this issue https://github.com/semantic-release/commit-analyzer/issues/231 use `breaking` keyword to trigger a major change release.
+## Resources
+
+No resources.
+
+## Inputs
+
+No inputs.
+
+## Outputs
+
+No outputs.
