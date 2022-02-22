@@ -1,6 +1,7 @@
 resource "aws_elasticache_subnet_group" "this" {
-  name       = format("%s-subnet-group", var.name)
-  subnet_ids = var.subnets
+  name        = format("%s-subnet-group", var.name)
+  description = format("%s Subnet group", var.name)
+  subnet_ids  = var.subnets
 
   tags = var.tags
 }
