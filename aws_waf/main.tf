@@ -1,14 +1,14 @@
 resource "aws_wafv2_ip_set" "ipset" {
   name               = var.ip_set_name
   description        = var.ip_set_description
-  scope              = var.scope 
-  ip_address_version = var.ip_set_address_version 
+  scope              = var.scope
+  ip_address_version = var.ip_set_address_version
   addresses          = var.ip_set_addresses
 
   tags = merge({
     Name        = "${var.project_name}-${var.environment}-waf"
     Environment = var.environment
-  }, var.tags
+    }, var.tags
   )
 }
 
@@ -27,8 +27,8 @@ resource "aws_wafv2_rule_group" "rule_group" {
 
     statement {
       ip_set_reference_statement {
-            arn = aws_wafv2_ip_set.ipset.arn
-          }
+        arn = aws_wafv2_ip_set.ipset.arn
+      }
     }
 
     visibility_config {
@@ -39,9 +39,9 @@ resource "aws_wafv2_rule_group" "rule_group" {
   }
 
   visibility_config {
-    cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled 
+    cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled
     metric_name                = "${var.project_name}-${var.environment}-waf-${var.rule_group_name}-metric"
-    sampled_requests_enabled   = var.sampled_requests_enabled 
+    sampled_requests_enabled   = var.sampled_requests_enabled
   }
 }
 
@@ -50,7 +50,7 @@ resource "aws_wafv2_web_acl" "web_acl" {
   scope = var.scope
 
   default_action {
-        block {}
+    block {}
   }
 
 
@@ -69,9 +69,9 @@ resource "aws_wafv2_web_acl" "web_acl" {
       }
     }
     visibility_config {
-      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled 
+      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled
       metric_name                = "${var.project_name}-${var.environment}-waf-rule-metric"
-      sampled_requests_enabled   = var.sampled_requests_enabled 
+      sampled_requests_enabled   = var.sampled_requests_enabled
     }
   }
   rule {
@@ -89,9 +89,9 @@ resource "aws_wafv2_web_acl" "web_acl" {
       }
     }
     visibility_config {
-      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled 
+      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled
       metric_name                = "${var.project_name}-${var.environment}-waf-rule-metric"
-      sampled_requests_enabled   = var.sampled_requests_enabled 
+      sampled_requests_enabled   = var.sampled_requests_enabled
     }
   }
   rule {
@@ -109,9 +109,9 @@ resource "aws_wafv2_web_acl" "web_acl" {
       }
     }
     visibility_config {
-      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled 
+      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled
       metric_name                = "${var.project_name}-${var.environment}-waf-rule-metric"
-      sampled_requests_enabled   = var.sampled_requests_enabled 
+      sampled_requests_enabled   = var.sampled_requests_enabled
     }
   }
   rule {
@@ -129,9 +129,9 @@ resource "aws_wafv2_web_acl" "web_acl" {
       }
     }
     visibility_config {
-      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled 
+      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled
       metric_name                = "${var.project_name}-${var.environment}-waf-rule-metric"
-      sampled_requests_enabled   = var.sampled_requests_enabled 
+      sampled_requests_enabled   = var.sampled_requests_enabled
     }
   }
   rule {
@@ -149,12 +149,12 @@ resource "aws_wafv2_web_acl" "web_acl" {
       }
     }
     visibility_config {
-      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled 
+      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled
       metric_name                = "${var.project_name}-${var.environment}-waf-rule-metric"
-      sampled_requests_enabled   = var.sampled_requests_enabled 
+      sampled_requests_enabled   = var.sampled_requests_enabled
     }
   }
-    
+
   rule {
     name     = "white-list"
     priority = 100
@@ -170,22 +170,22 @@ resource "aws_wafv2_web_acl" "web_acl" {
     }
 
     visibility_config {
-      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled 
+      cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled
       metric_name                = "${var.project_name}-${var.environment}-waf-rule-metric"
-      sampled_requests_enabled   = var.sampled_requests_enabled 
+      sampled_requests_enabled   = var.sampled_requests_enabled
     }
   }
 
   tags = merge({
     Name        = "${var.project_name}-${var.environment}-waf"
     Environment = var.environment
-  }, var.tags
+    }, var.tags
   )
 
   visibility_config {
-    cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled 
+    cloudwatch_metrics_enabled = var.cloudwatch_metrics_enabled
     metric_name                = "${var.project_name}-${var.environment}-waf-${var.web_acl_name}-metric"
-    sampled_requests_enabled   = var.sampled_requests_enabled 
+    sampled_requests_enabled   = var.sampled_requests_enabled
   }
 }
 

@@ -9,7 +9,7 @@ resource "aws_secretsmanager_secret" "this" {
 
 locals {
   ssh_keys_secret_map = {
-    pub_key = base64encode(file(var.public_key_path_openssh))
+    pub_key  = base64encode(file(var.public_key_path_openssh))
     priv_key = base64encode(file(var.private_key_path_openssh))
   }
 }

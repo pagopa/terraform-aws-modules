@@ -20,7 +20,7 @@ variable "ip_set_name" {
 variable "ip_set_description" {
   type        = string
   description = "A friendly description of the IP set."
-  default = "WAF IP Set"
+  default     = "WAF IP Set"
 }
 
 variable "tags" {
@@ -60,13 +60,13 @@ variable "web_acl_name" {
 variable "cloudwatch_metrics_enabled" {
   type        = bool
   description = "Enable or disable cloudwatch metrics."
-  default = false
+  default     = false
 }
 
 variable "sampled_requests_enabled" {
   type        = bool
   description = "Enable or disable cloudwatch metrics sampling."
-  default = false
+  default     = false
 }
 
 # Variable to define the origin load balancer for the WAF

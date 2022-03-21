@@ -187,26 +187,26 @@ variable "tags" {
 
 
 variable "master_username" {
-  type = string
+  type    = string
   default = null
 }
 variable "master_password" {
-  type = string
+  type    = string
   default = null
 }
 variable "db_engine" {
-  type = string
+  type    = string
   default = null
 }
 variable "db_host" {
-  type = string
+  type    = string
   default = null
 }
 variable "db_port" {
-  type = number
+  type    = number
   default = null
 }
 variable "db_dbname" {
-  type = string
+  type    = string
   default = null
 }

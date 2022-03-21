@@ -15,10 +15,10 @@ locals {
   db_secrets = {
     (var.master_username_secret_key) = var.master_username,
     (var.master_password_secret_key) = var.master_password,
-    engine = var.db_engine,
-    host = var.db_host,
-    port = var.db_port,
-    dbname = var.db_dbname,
+    engine                           = var.db_engine,
+    host                             = var.db_host,
+    port                             = var.db_port,
+    dbname                           = var.db_dbname,
   }
 }
 
@@ -27,9 +27,9 @@ resource "aws_secretsmanager_secret" "this" {
 }
 
 resource "aws_secretsmanager_secret_version" "this" {
-  secret_id     = aws_secretsmanager_secret.this.id
+  secret_id      = aws_secretsmanager_secret.this.id
   version_stages = [var.version_stage]
-  secret_string = jsonencode(local.db_secrets)
+  secret_string  = jsonencode(local.db_secrets)
 }
 
 resource "aws_rds_cluster" "this" {

@@ -8,17 +8,17 @@ resource "aws_kinesis_firehose_delivery_stream" "this" {
 
   extended_s3_configuration {
 
-    role_arn   = aws_iam_role.firehose_role.arn
+    role_arn = aws_iam_role.firehose_role.arn
 
-    bucket_arn = var.firehose_extended_s3_configurations.bucket_arn
-    prefix = var.firehose_extended_s3_configurations.prefix
+    bucket_arn          = var.firehose_extended_s3_configurations.bucket_arn
+    prefix              = var.firehose_extended_s3_configurations.prefix
     error_output_prefix = var.firehose_extended_s3_configurations.error_output_prefix
-    buffer_size = var.firehose_extended_s3_configurations.buffer_size
-    buffer_interval = var.firehose_extended_s3_configurations.buffer_interval
+    buffer_size         = var.firehose_extended_s3_configurations.buffer_size
+    buffer_interval     = var.firehose_extended_s3_configurations.buffer_interval
 
     cloudwatch_logging_options {
-      enabled = var.firehose_extended_s3_configurations.cloudwatch_enabled
-      log_group_name = var.firehose_extended_s3_configurations.cloudwatch_log_group
+      enabled         = var.firehose_extended_s3_configurations.cloudwatch_enabled
+      log_group_name  = var.firehose_extended_s3_configurations.cloudwatch_log_group
       log_stream_name = var.firehose_extended_s3_configurations.cloudwatch_log_stream_name
     }
 
@@ -31,8 +31,8 @@ resource "aws_iam_policy" "aws_kinesis_firehose_policy" {
 }
 
 resource "aws_iam_policy_attachment" "aws_kinesis_firehose_policy-attachment" {
-  name = "aws_kinesis_firehose_policy-attachment"
-  roles = [aws_iam_role.firehose_role.name]
+  name       = "aws_kinesis_firehose_policy-attachment"
+  roles      = [aws_iam_role.firehose_role.name]
   policy_arn = aws_iam_policy.aws_kinesis_firehose_policy.arn
 }
 
@@ -58,12 +58,12 @@ EOF
 
 data "aws_iam_policy_document" "firehose_put_role_template" {
   statement {
-    actions   = ["firehose:PutRecord","firehose:PutRecordBatch","firehose:UpdateDestination"]
+    actions   = ["firehose:PutRecord", "firehose:PutRecordBatch", "firehose:UpdateDestination"]
     resources = [aws_kinesis_firehose_delivery_stream.this.arn]
   }
 }
 
 resource "aws_iam_policy" "this" {
-  name = "${var.firehose_name}-put-policy"
+  name   = "${var.firehose_name}-put-policy"
   policy = data.aws_iam_policy_document.firehose_put_role_template.json
 }

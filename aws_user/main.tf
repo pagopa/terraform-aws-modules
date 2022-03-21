@@ -12,5 +12,5 @@ resource "aws_iam_user_policy" "this" {
 
 
 resource "aws_iam_access_key" "this" {
-  user    = aws_iam_user.this.name
+  user = aws_iam_user.this.name
 }

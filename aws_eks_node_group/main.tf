@@ -46,8 +46,8 @@ resource "aws_eks_node_group" "this" {
   node_group_name = var.node_group_name
   node_role_arn   = module.iam_role.arn
   subnet_ids      = var.subnet_ids
-  disk_size = var.disk_size
-  instance_types = var.instance_types
+  disk_size       = var.disk_size
+  instance_types  = var.instance_types
 
   scaling_config {
     desired_size = var.desired_size
@@ -58,7 +58,7 @@ resource "aws_eks_node_group" "this" {
   dynamic "remote_access" {
     for_each = var.ec2_ssh_key != null && var.ec2_ssh_key != "" ? ["true"] : []
     content {
-      ec2_ssh_key               = var.ec2_ssh_key
+      ec2_ssh_key = var.ec2_ssh_key
     }
   }
 

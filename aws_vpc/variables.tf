@@ -36,16 +36,16 @@ variable "public_subnet_tags" {
 }
 
 variable "public_subnets_cidr" {
-  type = list
+  type = list(any)
 }
 
 variable "private_subnets_cidr" {
-  type    = list
+  type    = list(any)
   default = []
 }
 
 variable "azs" {
-  type        = list
+  type        = list(any)
   description = "List of availability zones"
 }
 
